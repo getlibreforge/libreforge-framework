@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { useFormErrorMessage } from '../../hooks/useFormErrorMessage';
-import { IComponents } from '@getlibreforge/libreforge-framework-shared';
+import { IComponents } from '@libreforge/libreforge-framework-shared';
 import { cleanupCustomComponentProps } from '../../utils/CustomPropsMapper';
 import React from 'react';
 import * as Chakra from '@chakra-ui/react';

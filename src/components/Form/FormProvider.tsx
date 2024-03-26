@@ -2,10 +2,10 @@ import 'reflect-metadata';
 import { ReactElement, ReactNode } from 'react';
 import { injectable } from 'inversify';
 import * as Chakra from '@chakra-ui/react';
-import {ComponentCategory, IPages, InspectorControlEnum} from "@getlibreforge/libreforge-framework-shared"
+import {ComponentCategory, IPages, InspectorControlEnum} from "@libreforge/libreforge-framework-shared"
 import { StandardComponentProvider } from '../StandardComponentProvider';
 import ContainerComponent from '../ContainerComponent';
-import { IComponent, IComponents } from "@getlibreforge/libreforge-framework-shared"
+import { IComponent, IComponents } from "@libreforge/libreforge-framework-shared"
 import { AiOutlineForm } from 'react-icons/ai';
 
 @injectable()

@@ -1,6 +1,6 @@
 import React, { ComponentClass, FunctionComponent, ReactElement, forwardRef, memo } from 'react';
 import ComponentPreview from '../../ComponentPreview';
-import { IComponents, IPages } from '@getlibreforge/libreforge-framework-shared';
+import { IComponents, IPages } from '@libreforge/libreforge-framework-shared';
 import { cleanupCustomComponentProps } from '../../../utils/CustomPropsMapper';
 import { Container, Stack } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';

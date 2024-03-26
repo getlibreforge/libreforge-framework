@@ -1,7 +1,7 @@
 import React from 'react';
 import {forwardRef} from '@chakra-ui/react';
 import {useActionHandlers, usePageStateValueByComponentRef} from '../hooks';
-import { IComponents } from '@getlibreforge/libreforge-framework-shared';
+import { IComponents } from '@libreforge/libreforge-framework-shared';
 import { cleanupCustomComponentProps } from '../utils/CustomPropsMapper';
 
 const PreviewComponent = forwardRef(

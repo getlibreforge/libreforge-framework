@@ -2,7 +2,7 @@ import { Button } from '@chakra-ui/react';
 import { useActionHandlers } from '../../hooks/useActionHandlers';
 import { iconsList } from '../../iconsList';
 import { forwardRef } from 'react';
-import { IPages } from '@getlibreforge/libreforge-framework-shared';
+import { IPages } from '@libreforge/libreforge-framework-shared';
 import { cleanupCustomComponentProps } from '../../utils/CustomPropsMapper';
 
 const ButtonComponent = forwardRef((props: { componentId: string, pages: IPages, 

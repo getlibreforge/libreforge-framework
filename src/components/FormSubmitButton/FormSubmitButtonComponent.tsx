@@ -2,7 +2,7 @@ import { Button } from '@chakra-ui/react';
 import { useActionHandlers } from '../../hooks/useActionHandlers';
 import { iconsList } from '../../iconsList';
 import { forwardRef } from 'react';
-import { IComponents } from '@getlibreforge/libreforge-framework-shared';
+import { IComponents } from '@libreforge/libreforge-framework-shared';
 import { cleanupCustomComponentProps } from '../../utils/CustomPropsMapper';
 import { ComponentUtils } from '../../utils';
 import { usePageStateValueByComponentRef } from '../../hooks';

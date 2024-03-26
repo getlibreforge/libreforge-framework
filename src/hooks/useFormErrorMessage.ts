@@ -1,4 +1,4 @@
-import { IComponents } from '@getlibreforge/libreforge-framework-shared';
+import { IComponents } from '@libreforge/libreforge-framework-shared';
 import { ComponentUtils } from '../utils';
 import { useSelector } from 'react-redux';
 import { getCurrentPageState } from '../core';

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { getCurrentPageState } from '../core/selectors/app';
-import { IComponents } from '@getlibreforge/libreforge-framework-shared';
+import { IComponents } from '@libreforge/libreforge-framework-shared';
 import { ComponentClass, FunctionComponent } from 'react';
 import * as Chakra from '@chakra-ui/react';
 

@@ -1,5 +1,5 @@
 import { Navigate, useRoutes } from "react-router-dom";
-import { IPages } from "@getlibreforge/libreforge-framework-shared";
+import { IPages } from "@libreforge/libreforge-framework-shared";
 import { ReactElement, useContext, useEffect } from "react";
 import ApplicationPage from "../ApplicationPage";
 import { InversifyContainerProviderContext } from "../utils";

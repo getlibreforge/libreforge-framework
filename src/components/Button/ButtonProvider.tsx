@@ -1,10 +1,10 @@
 import 'reflect-metadata';
 import { ReactNode } from 'react';
 import { injectable } from 'inversify';
-import {ComponentCategory, IPages, InspectorControlEnum} from "@getlibreforge/libreforge-framework-shared"
+import {ComponentCategory, IPages, InspectorControlEnum} from "@libreforge/libreforge-framework-shared"
 import { StandardComponentProvider } from '../StandardComponentProvider';
 import ButtonComponent from './ButtonComponent';
-import { IComponent, IComponents } from "@getlibreforge/libreforge-framework-shared"
+import { IComponent, IComponents } from "@libreforge/libreforge-framework-shared"
 import { MdOutlineSmartButton } from 'react-icons/md';
 
 @injectable()

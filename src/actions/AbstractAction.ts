@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { Container, injectable } from 'inversify';
 import { RematchDispatch } from '@rematch/core';
-import { IComponents } from '@getlibreforge/libreforge-framework-shared';
+import { IComponents } from '@libreforge/libreforge-framework-shared';
 
 export const SYMBOL_ACTION_PROVIDER = 'AbstractAction';
 

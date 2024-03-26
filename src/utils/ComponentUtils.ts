@@ -3,7 +3,7 @@ import {
   ComponentProvider,
   SYMBOL_COMPONENT_PROVIDER,
 } from '../ComponentProvider';
-import {ComponentCategory, ComponentType, IComponent, IComponents} from '@getlibreforge/libreforge-framework-shared'
+import {ComponentCategory, ComponentType, IComponent, IComponents} from '@libreforge/libreforge-framework-shared'
 import {ReactElement} from "react";
 
 export class ComponentUtils {

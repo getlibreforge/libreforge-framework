@@ -1,11 +1,11 @@
 import 'reflect-metadata';
 import { ReactNode } from 'react';
 import { injectable } from 'inversify';
-import {ComponentCategory, IPages, InspectorControlEnum} from "@getlibreforge/libreforge-framework-shared"
+import {ComponentCategory, IPages, InspectorControlEnum} from "@libreforge/libreforge-framework-shared"
 import { StandardComponentProvider } from '../StandardComponentProvider';
 import * as Chakra from '@chakra-ui/react';
 import PreviewComponent from '../PreviewComponent';
-import { IComponent, IComponents } from "@getlibreforge/libreforge-framework-shared"
+import { IComponent, IComponents } from "@libreforge/libreforge-framework-shared"
 import { BiImage } from "react-icons/bi";
 
 @injectable()

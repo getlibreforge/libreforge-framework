@@ -2,7 +2,7 @@ import React, { ReactElement, memo, useContext } from 'react';
 import { ProviderFactory } from '../utils';
 import { InversifyContainerProviderContext } from '../utils';
 import { ComponentProvider } from '../ComponentProvider';
-import { IComponents, IPages } from '@getlibreforge/libreforge-framework-shared';
+import { IComponents, IPages } from '@libreforge/libreforge-framework-shared';
 import { ComponentUtils } from '../utils';
 
 type ComponentPreviewProps = {

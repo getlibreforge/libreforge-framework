@@ -7,7 +7,7 @@ import { useDispatch, usePropBasedActions } from '../../../../hooks';
 import { cleanupCustomComponentProps } from '../../../../utils/CustomPropsMapper';
 import { VscGithubAction } from "react-icons/vsc";
 import { InversifyContainerProviderContext, ProviderFactory } from '../../../../utils';
-import { IComponents, IPages } from '@getlibreforge/libreforge-framework-shared';
+import { IComponents, IPages } from '@libreforge/libreforge-framework-shared';
 import { useNavigate } from 'react-router-dom';
 import { ActionExecutionContext } from '../../../../actions';
 

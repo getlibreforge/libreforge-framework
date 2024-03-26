@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { inject, injectable } from 'inversify';
-import { IComponent } from '@getlibreforge/libreforge-framework-shared';
+import { IComponent } from '@libreforge/libreforge-framework-shared';
 import FormSubmitService from '../services/FormSubmitService';
 import { ComponentUtils } from '../utils';
 import { AbstractAction, ActionExecutionContext } from './AbstractAction';

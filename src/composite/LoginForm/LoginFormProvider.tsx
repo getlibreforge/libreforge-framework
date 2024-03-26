@@ -1,11 +1,11 @@
 import 'reflect-metadata';
 import React, { ReactNode } from 'react';
 import { injectable } from 'inversify';
-import {ComponentCategory, IPages, InspectorControlEnum} from "@getlibreforge/libreforge-framework-shared"
+import {ComponentCategory, IPages, InspectorControlEnum} from "@libreforge/libreforge-framework-shared"
 import { CompositeComponentProvider } from '../CompositeComponentProvider';
 import Composer, { ComposedComponent } from '../../utils/Composer';
 import LoginFormComponent from './LoginFormComponent';
-import { IComponent, IComponents } from "@getlibreforge/libreforge-framework-shared"
+import { IComponent, IComponents } from "@libreforge/libreforge-framework-shared"
 import { AiOutlineBuild } from 'react-icons/ai';
 
 @injectable()

@@ -2,9 +2,9 @@ import 'reflect-metadata';
 import { ReactNode } from 'react';
 import { injectable } from 'inversify';
 import SelectPreview from './SelectPreview';
-import {ComponentCategory, IPages, InspectorControlEnum} from "@getlibreforge/libreforge-framework-shared"
+import {ComponentCategory, IPages, InspectorControlEnum} from "@libreforge/libreforge-framework-shared"
 import { StandardComponentProvider } from '../StandardComponentProvider';
-import { IComponent, IComponents } from "@getlibreforge/libreforge-framework-shared"
+import { IComponent, IComponents } from "@libreforge/libreforge-framework-shared"
 import { GoMultiSelect } from "react-icons/go";
 
 @injectable()

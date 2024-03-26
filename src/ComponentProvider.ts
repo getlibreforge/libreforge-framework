@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 import { injectable } from 'inversify';
 import { ReactElement, ReactNode } from 'react';
-import { IPages, InspectorControlEnum } from "@getlibreforge/libreforge-framework-shared"
-import { ComponentCategory, IComponent, IComponents } from "@getlibreforge/libreforge-framework-shared"
+import { IPages, InspectorControlEnum } from "@libreforge/libreforge-framework-shared"
+import { ComponentCategory, IComponent, IComponents } from "@libreforge/libreforge-framework-shared"
 
 export const SYMBOL_COMPONENT_PROVIDER = 'ComponentProvider';
 

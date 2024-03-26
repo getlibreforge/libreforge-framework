@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
-import { IPages } from "@getlibreforge/libreforge-framework-shared"
+import { IPages } from "@libreforge/libreforge-framework-shared"
 import { SnackbarProvider } from "notistack";
 import { Routes } from './routes';
 import { BrowserRouter } from "react-router-dom";

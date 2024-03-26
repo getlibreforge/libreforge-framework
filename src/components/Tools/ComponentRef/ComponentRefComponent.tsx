@@ -1,5 +1,5 @@
 import { ReactElement, forwardRef, memo } from 'react';
-import { IComponent, IComponents, IPages } from '@getlibreforge/libreforge-framework-shared';
+import { IComponent, IComponents, IPages } from '@libreforge/libreforge-framework-shared';
 import ComponentPreview from '../../ComponentPreview';
 import { Box } from '@chakra-ui/react';
 

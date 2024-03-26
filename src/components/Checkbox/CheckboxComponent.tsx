@@ -1,6 +1,6 @@
 import { Checkbox } from '@chakra-ui/react';
 import { forwardRef } from 'react';
-import { IPages } from '@getlibreforge/libreforge-framework-shared';
+import { IPages } from '@libreforge/libreforge-framework-shared';
 import { cleanupCustomComponentProps } from '../../utils/CustomPropsMapper';
 import { useCheckboxActions } from '../../hooks/useCheckboxActions';
 import { usePageStateValueByComponentRef } from '../../hooks';

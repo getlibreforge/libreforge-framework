@@ -1,4 +1,4 @@
-import { generateId, IComponents, ComponentType } from "@getlibreforge/libreforge-framework-shared"
+import { generateId, IComponents, ComponentType } from "@libreforge/libreforge-framework-shared"
 
 export type ComposedComponent = {
   components: IComponents;

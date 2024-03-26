@@ -1,5 +1,5 @@
 import React, { ReactElement, forwardRef, memo, useContext } from 'react';
-import { IComponents } from '@getlibreforge/libreforge-framework-shared';
+import { IComponents } from '@libreforge/libreforge-framework-shared';
 import { cleanupCustomComponentProps } from '../../../utils/CustomPropsMapper';
 import { Stack } from '@chakra-ui/react';
 import { Button } from "@chakra-ui/react";

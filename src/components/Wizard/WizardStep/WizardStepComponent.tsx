@@ -1,6 +1,6 @@
 import { Box, Step, StepDescription, StepIcon, StepIndicator, StepNumber, StepSeparator, StepStatus, StepTitle } from '@chakra-ui/react';
 import { forwardRef } from 'react';
-import { IComponents } from '@getlibreforge/libreforge-framework-shared';
+import { IComponents } from '@libreforge/libreforge-framework-shared';
 import { cleanupCustomComponentProps } from '../../../utils/CustomPropsMapper';
 
 const WizardStepComponent = forwardRef((props: { componentId: string, title: string, description: string, 

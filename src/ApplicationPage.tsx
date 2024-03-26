@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import ComponentPreview from "./components/ComponentPreview";
-import { IPages } from "@getlibreforge/libreforge-framework-shared";
+import { IPages } from "@libreforge/libreforge-framework-shared";
 import { ReactElement, useContext, useEffect, useState } from "react";
 import React from "react";
 import { InversifyContainerProviderContext } from "./utils";

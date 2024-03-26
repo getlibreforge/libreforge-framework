@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { injectable } from 'inversify';
-import { IComponents } from '@getlibreforge/libreforge-framework-shared';
+import { IComponents } from '@libreforge/libreforge-framework-shared';
 import { AbstractValidationRule } from './AbstractValidationRule';
 
 const ERROR_MESSAGE = "Field is required";

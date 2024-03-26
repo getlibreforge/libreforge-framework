@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { IComponents } from '@getlibreforge/libreforge-framework-shared';
+import { IComponents } from '@libreforge/libreforge-framework-shared';
 import { cleanupCustomComponentProps } from '../../utils/CustomPropsMapper';
 import * as Chakra from '@chakra-ui/react';
 import React from 'react';
