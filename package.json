@@ -1,6 +1,6 @@
 {
   "name": "@getlibreforge/libreforge-framework",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "``` npm login npm whoami",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,7 +20,7 @@
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.8.1",
-    "@getlibreforge/libreforge-framework-shared": "^1.0.0",
+    "@getlibreforge/libreforge-framework-shared": "^1.0.1",
     "@rematch/core": "^2.2.0",
     "@stripe/stripe-js": "^2.2.2",
     "@types/uuid": "^9.0.7",
