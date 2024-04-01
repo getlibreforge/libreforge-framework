@@ -45,7 +45,6 @@ import { AbstractCallbackHandler, SYMBOL_CALLBACK_PROVIDER, OAuth2GoogleCallback
 import { OAuth2GoogleRedirectAction } from './security/OAuth2GoogleRedirectAction';
 import { AbstractSessionRefreshStrategy, SYMBOL_REFRESH_STRATEGY } from './security';
 import { OAuth2SessionRefreshStrategy } from './security/OAuth2SessionRefreshStrategy';
-import { RouteToStripeCheckoutAction } from './payment';
 import { RouteToPageAction } from './actions/RouteToPageAction';
 import { AbstractValidationRule, SYMBOL_VALIDATION_RULE } from './validation/AbstractValidationRule';
 import { RequiredValidationRule } from './validation/RequiredValidationRule';
@@ -138,7 +137,6 @@ export function bindProviders(
   container.bind<AbstractValidationRule>(SYMBOL_VALIDATION_RULE).to(LengthBetweenValidationRule);
 
   bindSecurityProviders(container);
-  bindPaymentProviders(container);
 }
 
 function bindSecurityProviders(container: Container) {
@@ -154,10 +152,4 @@ function bindSecurityProviders(container: Container) {
   if (true !== isRefreshStrategyBound) {
     container.bind<AbstractSessionRefreshStrategy>(SYMBOL_REFRESH_STRATEGY).to(OAuth2SessionRefreshStrategy);
   }    
-}
-
-function bindPaymentProviders(container: Container) {
-
-  /* Stripe */
-  container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(RouteToStripeCheckoutAction);
 }
