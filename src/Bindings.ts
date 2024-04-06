@@ -41,10 +41,6 @@ import { VariableTextProvider, TextProvider } from './components/Label';
 import { ComponentForEachProvider } from './components/Tools/ComponentForEach';
 import { OnPageLoadActionProvider, ResourceLoadPageActionProvider } from './components/Tools/PageActions';
 import { AuthorizationManager, SYMBOL_AUTHORIZATION_MANAGER } from './security/AuthorizationManager';
-import { AbstractCallbackHandler, SYMBOL_CALLBACK_PROVIDER, OAuth2GoogleCallbackHandler } from './callbacks';
-import { OAuth2GoogleRedirectAction } from './security/OAuth2GoogleRedirectAction';
-import { AbstractSessionRefreshStrategy, SYMBOL_REFRESH_STRATEGY } from './security';
-import { OAuth2SessionRefreshStrategy } from './security/OAuth2SessionRefreshStrategy';
 import { RouteToPageAction } from './actions/RouteToPageAction';
 import { AbstractValidationRule, SYMBOL_VALIDATION_RULE } from './validation/AbstractValidationRule';
 import { RequiredValidationRule } from './validation/RequiredValidationRule';
@@ -144,12 +140,8 @@ function bindSecurityProviders(container: Container) {
   /* Security */
   container.bind<AuthorizationManager>(SYMBOL_AUTHORIZATION_MANAGER).to(AuthorizationManager);
 
-  /* Google OAuth2 PKCE */
-  container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(OAuth2GoogleRedirectAction);
-  container.bind<AbstractCallbackHandler>(SYMBOL_CALLBACK_PROVIDER).to(OAuth2GoogleCallbackHandler);
-
-  const isRefreshStrategyBound = container.isBound(SYMBOL_REFRESH_STRATEGY);
-  if (true !== isRefreshStrategyBound) {
-    container.bind<AbstractSessionRefreshStrategy>(SYMBOL_REFRESH_STRATEGY).to(OAuth2SessionRefreshStrategy);
-  }    
+  // const isRefreshStrategyBound = container.isBound(SYMBOL_REFRESH_STRATEGY);
+  // if (true !== isRefreshStrategyBound) {
+  //   container.bind<AbstractSessionRefreshStrategy>(SYMBOL_REFRESH_STRATEGY).to(OAuth2SessionRefreshStrategy);
+  // }    
 }
