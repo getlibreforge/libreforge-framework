@@ -10,6 +10,29 @@ The open source nature of framework empowers organizations to avoid vendor lock 
 enabling customization and control over the source code, ensuring long-term viability independent of vendor roadmaps,
 promoting interoperability, and enhancing security through community-driven transparency and vigilance.
 
+## State Management
+
+There are two types of state in LibreForge - Shared & Page states. Shared state is not cleared on page switch, Page state - is cleared.
+
+### Shared State
+
+An example of Shared state usage is to keep the state of Loader, or keep the session information (like access token) and be sure that such information doesn't disappear, when user decides to move to another page. 
+In other words, if we need the state to survive the page change, such state needs to be kept as shared.
+
+E.g. if you inspect the default [RouteToPageAction](https://github.com/getlibreforge/libreforge-framework/blob/main/src/actions/RouteToPageAction.ts) action, you will notice, that such action clears the page state, i.e.
+
+```
+dispatch.app.cleanCurrentPageState({})
+```
+
+### Page State
+
+Page state instead is used to keep the currently visible components values, metadata, etc - everything, which is needed to render the page, submit the data to backend, etc. 
+On page change such data needs to be removed, as it isn't relevant for another page components.
+
+Developer can assign [DebugStateAction](https://github.com/getlibreforge/libreforge-framework/blob/main/src/actions/DebugStateAction.ts) as the 'on click action' to the Button component 
+to be able to debug state at a runtime (for dev testing purposes only). Such action requires the `State Type` parameter to be provided, which is either `shared` or `page`.
+
 ## Framework Abstractions
 
 This section delineates the framework's provided abstractions, essential for implementing a standardized collection of components, actions, etc. 
