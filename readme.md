@@ -122,6 +122,8 @@ where
 - `getDefaultProps` - default values for components properties
 - `isContainer` - tells to Designer, that other components are droppable to the current one or not
 
+For more information about the collection of components provided by the framework see the list of docs and read about each component separately in https://github.com/getlibreforge/libreforge-framework/tree/main/docs 
+
 ### AbstractValidationRule
 
 This abstraction defines the validation rules for UI input components, which are executed upon form submission. 
