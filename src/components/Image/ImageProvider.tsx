@@ -4,7 +4,7 @@ import { injectable } from 'inversify';
 import {ComponentCategory, IPages, InspectorControlEnum} from "@libreforge/libreforge-framework-shared"
 import { StandardComponentProvider } from '../StandardComponentProvider';
 import * as Chakra from '@chakra-ui/react';
-import PreviewComponent from '../PreviewComponent';
+import NativeComponentRenderer from '../NativeComponentRenderer';
 import { IComponent, IComponents } from "@libreforge/libreforge-framework-shared"
 import { BiImage } from "react-icons/bi";
 
@@ -30,7 +30,7 @@ export class ImageProvider extends StandardComponentProvider {
     forwardedProps: any, overridenComponentPageState: any, collectionRefIdx: number | undefined): ReactNode {
 
     return (
-      <PreviewComponent
+      <NativeComponentRenderer
         type={Chakra['Image']} pageComponents={pageComponents} collectionRefIdx={collectionRefIdx}
         designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
         {...component.props} {...forwardedProps}

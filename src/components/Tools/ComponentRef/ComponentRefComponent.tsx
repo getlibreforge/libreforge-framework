@@ -1,6 +1,6 @@
 import { ReactElement, forwardRef, memo } from 'react';
 import { IComponent, IComponents, IPages } from '@libreforge/libreforge-framework-shared';
-import ComponentPreview from '../../ComponentPreview';
+import ChildComponentRenderer from '../../ChildComponentRenderer';
 import { Box } from '@chakra-ui/react';
 
 const ComponentRefComponent = forwardRef((props: { componentId: string, collectionRefIdx: number | undefined, title: string, description: string, 
@@ -17,7 +17,7 @@ const ComponentRefComponent = forwardRef((props: { componentId: string, collecti
     return (
       //@ts-ignore
       <Box ref={ref}>
-        <ComponentPreview key={componentRef.id} overridenComponentPageState={undefined}
+        <ChildComponentRenderer key={componentRef.id} overridenComponentPageState={undefined}
           designMode={props.designMode} designModeInteractivityDisabled={true} collectionRefIdx={props.collectionRefIdx}
           componentName={componentRef.id} pageComponents={props.pageComponents} pages={props.pages}
           wrapperComponent={props.wrapperComponent} wrapperContainer={props.wrapperContainer}

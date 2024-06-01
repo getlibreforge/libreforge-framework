@@ -1,5 +1,5 @@
 import React, { ReactElement, forwardRef, memo } from 'react';
-import ComponentPreview from '../../ComponentPreview';
+import ChildComponentRenderer from '../../ChildComponentRenderer';
 import { IComponents, IPages } from '@libreforge/libreforge-framework-shared';
 import { cleanupCustomComponentProps } from '../../../utils/CustomPropsMapper';
 import * as Chakra from '@chakra-ui/react';
@@ -27,7 +27,7 @@ const WizardStepperComponent = forwardRef((props: WizardStepperComponentProps, r
     cleanedProps, 
     children.map((key: string) => {
       return (
-        <ComponentPreview key={key} componentName={key} overridenComponentPageState={undefined}
+        <ChildComponentRenderer key={key} componentName={key} overridenComponentPageState={undefined}
           designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
           pageComponents={pageComponents} pages={pages} collectionRefIdx={collectionRefIdx}
           wrapperComponent={wrapperComponent} wrapperContainer={wrapperContainer} />        

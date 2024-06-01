@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import ComponentPreview from "./components/ComponentPreview";
+import ChildComponentRenderer from "./components/ChildComponentRenderer";
 import { IPages } from "@libreforge/libreforge-framework-shared";
 import { ReactElement, useContext, useEffect, useState } from "react";
 import React from "react";
@@ -65,7 +65,7 @@ const ApplicationPage: React.FC<ApplicationPageProps> = ({ overridePageName, pag
 
   if (true === pageLoaded) {
     return rootChildren.map((name: string) => (
-      <ComponentPreview key={name} overridenComponentPageState={undefined} collectionRefIdx={undefined}
+      <ChildComponentRenderer key={name} overridenComponentPageState={undefined} collectionRefIdx={undefined}
         designMode={designMode} designModeInteractivityDisabled={false}
         componentName={name} pageComponents={pageComponents} pages={pages}
         wrapperComponent={wrapperComponent} wrapperContainer={wrapperContainer}

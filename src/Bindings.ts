@@ -15,7 +15,7 @@ import { TextareaProvider } from './components/Textarea/TextareaProvider';
 import { InputProvider } from './components/Input/InputProvider';
 import { DividerProvider } from './components/Divider/DividerProvider';
 import { SelectProvider } from './components/Select/SelectProvider';
-import { LoginFormProvider } from './composite/LoginForm/LoginFormProvider';
+import { AddressFormProvider } from './composite/AddressForm/AddressFormProvider';
 import { DataProvider, SYMBOL_DATA_PROVIDER } from './providers/DataProvider';
 import { SampleDictionaryDataProvider } from './providers/SampleDictionaryDataProvider';
 import { AbstractAction, SYMBOL_ACTION_PROVIDER } from './actions/AbstractAction';
@@ -100,7 +100,7 @@ export function bindProviders(
   container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(WizardStepProvider);
 
   /* Composite Components */
-  container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(LoginFormProvider);
+  container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(AddressFormProvider);
 
   /* Data Providers */
   container.bind<DataProvider>(SYMBOL_DATA_PROVIDER).to(SampleDictionaryDataProvider);

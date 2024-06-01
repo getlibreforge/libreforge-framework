@@ -1,15 +1,15 @@
 import 'reflect-metadata';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { injectable } from 'inversify';
 import {ComponentCategory, IPages, InspectorControlEnum} from "@libreforge/libreforge-framework-shared"
 import { CompositeComponentProvider } from '../CompositeComponentProvider';
 import Composer, { ComposedComponent } from '../../utils/Composer';
-import LoginFormComponent from './LoginFormComponent';
+import AddressFormComponent from './AddressFormComponent';
 import { IComponent, IComponents } from "@libreforge/libreforge-framework-shared"
 import { AiOutlineBuild } from 'react-icons/ai';
 
 @injectable()
-export class LoginFormProvider extends CompositeComponentProvider {
+export class AddressFormProvider extends CompositeComponentProvider {
   
   type = 'Address';
 
@@ -28,7 +28,7 @@ export class LoginFormProvider extends CompositeComponentProvider {
   getComponent(component: IComponent, pageComponents: IComponents, pages: IPages, designMode: boolean, designModeInteractivityDisabled: boolean, forwardedProps: any): ReactNode {
 
     return (
-      <LoginFormComponent children={component.children}
+      <AddressFormComponent children={component.children}
         pageComponents={pageComponents} pages={pages} 
         designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
         {...component.props} {...forwardedProps}

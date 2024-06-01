@@ -1,14 +1,14 @@
 import { Box } from '@chakra-ui/react';
-import ComponentPreview from '../../components/ComponentPreview';
+import ChildComponentRenderer from '../../components/ChildComponentRenderer';
 import { forwardRef } from 'react';
 
-const LoginFormComponent = forwardRef((props: any, ref) => {
+const AddressFormComponent = forwardRef((props: any, ref) => {
   const { children, designMode, designModeInteractivityDisabled, pageComponents, pages, ...boxProps } = props;
 
   return (
     <Box ref={ref} {...boxProps}>
       {children.map((key: string) => (
-        <ComponentPreview key={key} componentName={key} overridenComponentPageState={undefined}
+        <ChildComponentRenderer key={key} componentName={key} overridenComponentPageState={undefined}
           designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
           pageComponents={pageComponents} pages={pages} collectionRefIdx={undefined} />
       ))}
@@ -16,4 +16,4 @@ const LoginFormComponent = forwardRef((props: any, ref) => {
   );
 });
 
-export default LoginFormComponent;
+export default AddressFormComponent;

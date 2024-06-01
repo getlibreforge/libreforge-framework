@@ -1,5 +1,5 @@
 import React, { ComponentClass, FunctionComponent, ReactElement, forwardRef, memo } from 'react';
-import ComponentPreview from '../../ComponentPreview';
+import ChildComponentRenderer from '../../ChildComponentRenderer';
 import { IComponents, IPages } from '@libreforge/libreforge-framework-shared';
 import { cleanupCustomComponentProps } from '../../../utils/CustomPropsMapper';
 import { Container, Stack } from '@chakra-ui/react';
@@ -38,7 +38,7 @@ const ComponentForEach = forwardRef((props: ComponentForEachProps, ref) => {
           <Container width="100%" maxWidth="100%">
             {children.map((key: string) => {
               return (
-                <ComponentPreview key={key} componentName={key} 
+                <ChildComponentRenderer key={key} componentName={key} 
                     overridenComponentPageState={row} collectionRefIdx={index}
                     designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
                     pageComponents={pageComponents}

@@ -5,7 +5,7 @@ import { ComponentProvider } from '../ComponentProvider';
 import { IComponents, IPages } from '@libreforge/libreforge-framework-shared';
 import { ComponentUtils } from '../utils';
 
-type ComponentPreviewProps = {
+type ChildComponentRendererProps = {
   overridenComponentPageState: any,
   collectionRefIdx: number | undefined,
   componentName: string;
@@ -17,7 +17,7 @@ type ComponentPreviewProps = {
   wrapperContainer?: ReactElement;
 }
 
-const ComponentPreview: React.FC<ComponentPreviewProps> = ({
+const ChildComponentRenderer: React.FC<ChildComponentRendererProps> = ({
     componentName, overridenComponentPageState, collectionRefIdx, pageComponents, pages, designMode, designModeInteractivityDisabled, wrapperComponent, wrapperContainer, ...forwardedProps }) => {
 
   const componentUtils = new ComponentUtils();
@@ -25,7 +25,7 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
 
   if (!component) {
     console.error(
-      `Component ${componentName} not found`,
+      `Child component ${componentName} not found`,
     );
     return null;
   }  
@@ -44,17 +44,17 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
     return null;
   }
 
-  const preview = componentProvider.getComponent(component, pageComponents, pages, designMode, designModeInteractivityDisabled, forwardedProps, overridenComponentPageState, collectionRefIdx, wrapperComponent, wrapperContainer);
+  const reactNode = componentProvider.getComponent(component, pageComponents, pages, designMode, designModeInteractivityDisabled, forwardedProps, overridenComponentPageState, collectionRefIdx, wrapperComponent, wrapperContainer);
   const componentType = componentProvider.isContainer() ? wrapperContainer?.type: wrapperComponent?.type
 
   if (!!componentType) {
     return React.createElement(
-      componentType, { component, designMode, designModeInteractivityDisabled, wrapperComponent, wrapperContainer }, preview,
+      componentType, { component, designMode, designModeInteractivityDisabled, wrapperComponent, wrapperContainer }, reactNode,
     );
 
   } else {
-    return preview;
+    return reactNode;
   }
 };
 
-export default memo(ComponentPreview);
+export default memo(ChildComponentRenderer);

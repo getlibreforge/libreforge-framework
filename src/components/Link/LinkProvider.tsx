@@ -4,7 +4,7 @@ import { injectable } from 'inversify';
 import * as Chakra from '@chakra-ui/react';
 import {ComponentCategory, IPages, InspectorControlEnum} from "@libreforge/libreforge-framework-shared"
 import { StandardComponentProvider } from '../StandardComponentProvider';
-import PreviewComponent from '../PreviewComponent';
+import NativeComponentRenderer from '../NativeComponentRenderer';
 import { IComponent, IComponents } from "@libreforge/libreforge-framework-shared"
 import { BsLink } from "react-icons/bs";
 
@@ -30,7 +30,7 @@ export class LinkProvider extends StandardComponentProvider {
     forwardedProps: any, overridenComponentPageState: any, collectionRefIdx: number | undefined): ReactNode {
 
       return (
-        <PreviewComponent
+        <NativeComponentRenderer
           type={Chakra['Link']} 
           designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
           pageComponents={pageComponents} collectionRefIdx={collectionRefIdx}

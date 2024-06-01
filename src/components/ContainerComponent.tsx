@@ -1,5 +1,5 @@
 import React, { ComponentClass, FunctionComponent, ReactElement, forwardRef, memo } from 'react';
-import ComponentPreview from './ComponentPreview';
+import ChildComponentRenderer from './ChildComponentRenderer';
 import { IComponents, IPages } from '@libreforge/libreforge-framework-shared';
 import { cleanupCustomComponentProps } from '../utils/CustomPropsMapper';
 import { useFormControlError } from '../hooks';
@@ -29,7 +29,7 @@ const ContainerComponent = forwardRef((props: ContainerComponentProps, ref) => {
     cleanedProps, 
     children.map((key: string) => {
       return (
-        <ComponentPreview key={key} componentName={key} overridenComponentPageState={overridenComponentPageState}
+        <ChildComponentRenderer key={key} componentName={key} overridenComponentPageState={overridenComponentPageState}
           designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
           pageComponents={pageComponents} collectionRefIdx={collectionRefIdx}
           pages={pages} wrapperComponent={wrapperComponent} wrapperContainer={wrapperContainer} />        
