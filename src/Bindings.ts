@@ -13,7 +13,6 @@ import { LoaderProvider } from './components/Loader';
 import { CheckboxProvider } from './components/Checkbox/CheckboxProvider';
 import { TextareaProvider } from './components/Textarea/TextareaProvider';
 import { InputProvider } from './components/Input/InputProvider';
-import { RadioProvider } from './components/Radio/RadioProvider';
 import { DividerProvider } from './components/Divider/DividerProvider';
 import { SelectProvider } from './components/Select/SelectProvider';
 import { LoginFormProvider } from './composite/LoginForm/LoginFormProvider';
@@ -76,7 +75,6 @@ export function bindProviders(
   container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(HeadingProvider);  
   container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(InputProvider);
   container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(PasswordInputProvider);
-  container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(RadioProvider);
   container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(DividerProvider);
   container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(SelectProvider);
   container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(LocalDateProvider);

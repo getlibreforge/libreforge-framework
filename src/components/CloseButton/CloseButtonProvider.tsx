@@ -14,7 +14,7 @@ export class CloseButtonProvider extends StandardComponentProvider {
   type = 'CloseButton';
 
   getCategory(): ComponentCategory {
-    return "experimental";
+    return "basic";
   }
 
   getIcon() {

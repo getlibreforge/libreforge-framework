@@ -11,10 +11,10 @@ import { AiOutlineBuild } from 'react-icons/ai';
 @injectable()
 export class LoginFormProvider extends CompositeComponentProvider {
   
-  type = 'Login Form';
+  type = 'Address';
 
   getCategory(): ComponentCategory {
-    return "experimental";
+    return "blocks";
   }
 
   getIcon() {
