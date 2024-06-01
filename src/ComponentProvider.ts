@@ -14,7 +14,7 @@ export abstract class ComponentProvider {
 
   abstract getName(): string;  
 
-  abstract getPreview(component: IComponent, pageComponents: IComponents, pages: IPages, 
+  abstract getComponent(component: IComponent, pageComponents: IComponents, pages: IPages, 
     designMode: boolean, designModeInteractivityDisabled: boolean,
     forwardedProps: any, 
     overridenComponentPageState: any,

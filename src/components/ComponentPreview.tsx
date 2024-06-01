@@ -44,7 +44,7 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
     return null;
   }
 
-  const preview = componentProvider.getPreview(component, pageComponents, pages, designMode, designModeInteractivityDisabled, forwardedProps, overridenComponentPageState, collectionRefIdx, wrapperComponent, wrapperContainer);
+  const preview = componentProvider.getComponent(component, pageComponents, pages, designMode, designModeInteractivityDisabled, forwardedProps, overridenComponentPageState, collectionRefIdx, wrapperComponent, wrapperContainer);
   const componentType = componentProvider.isContainer() ? wrapperContainer?.type: wrapperComponent?.type
 
   if (!!componentType) {

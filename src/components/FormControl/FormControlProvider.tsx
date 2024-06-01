@@ -25,7 +25,7 @@ export class FormControlProvider extends StandardComponentProvider {
     return this.type;
   }
 
-  getPreview(component: IComponent, pageComponents: IComponents, pages: IPages, 
+  getComponent(component: IComponent, pageComponents: IComponents, pages: IPages, 
       designMode: boolean, designModeInteractivityDisabled: boolean, forwardedProps: any, 
       overridenComponentPageState: any, collectionRefIdx: number | undefined,
       wrapperComponent?: ReactElement, wrapperContainer?: ReactElement): ReactNode {

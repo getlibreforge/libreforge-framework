@@ -25,7 +25,7 @@ export class LoginFormProvider extends CompositeComponentProvider {
     return this.type;
   }  
 
-  getPreview(component: IComponent, pageComponents: IComponents, pages: IPages, designMode: boolean, designModeInteractivityDisabled: boolean, forwardedProps: any): ReactNode {
+  getComponent(component: IComponent, pageComponents: IComponents, pages: IPages, designMode: boolean, designModeInteractivityDisabled: boolean, forwardedProps: any): ReactNode {
 
     return (
       <LoginFormComponent children={component.children}

@@ -101,7 +101,7 @@ export abstract class ComponentProvider {
 
   abstract getIcon(): ReactElement;
   abstract getName(): string;  
-  abstract getPreview(...): ReactNode;
+  abstract getComponent(...): ReactNode;
 
   abstract getInspectorControls(): {
     control: InspectorControlEnum;
