@@ -114,7 +114,7 @@ export abstract class ComponentProvider {
 ```
 
 where 
-- `getCategory` - defines the category under which the component is rendered in Designer. The next categories are available right now `layout`, `basic`, `fields`, `forms`, `wizard`, `tools`, `experimental`
+- `getCategory` - defines the category under which the component is rendered in Designer. The next categories are available right now `layout`, `basic`, `fields`, `forms`, `wizard`, `tools`, `blocks`
 - `getIcon` - icon rendered in Designer
 - `getName` - rendered in Designer, needs to be unique, as later it is stored in application configuration and is used to render the component on UI
 - `getPreview` - component itself
