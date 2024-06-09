@@ -49,6 +49,7 @@ class Composer {
         id,
         props: { ...defaultProps, ...props, _x_name: id },
         rootParentType: localRootParentType,
+        rules: {}
       },
     };
 

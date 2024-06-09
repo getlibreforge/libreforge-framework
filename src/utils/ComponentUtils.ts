@@ -5,6 +5,7 @@ import {
 } from '../ComponentProvider';
 import {ComponentCategory, ComponentType, IComponent, IComponents} from '@libreforge/libreforge-framework-shared'
 import {ReactElement} from "react";
+import { variableNameHidden } from './NameUtils';
 
 export class ComponentUtils {
   getComponentTypes(container: Container): string[] {
@@ -40,11 +41,18 @@ export class ComponentUtils {
     return this.getParentOfType(pageComponents[current.parent], type, pageComponents);
   }
 
-  getChildrenOfTypes(components: string[], types: any, pageComponents: IComponents): IComponent[] {
+  getChildrenOfTypes(components: string[], types: any, pageComponents: IComponents, pageStateScoped: any): IComponent[] {
     let result: IComponent[] = []
     
     for (let i=0; i<components.length; i++) {
       const component = pageComponents[components[i]];
+
+      /* TODO: refactor */
+      const isHidden = pageStateScoped[variableNameHidden(component.props['_x_name'])];
+      if (!!isHidden) {
+        console.log(`${component.componentName} hidden, skipping hierarchy underneath`);
+        continue;
+      }
 
       /* If we found component */
       if (types[component.type] !== undefined) {
@@ -58,7 +66,7 @@ export class ComponentUtils {
       }
 
       /* Else iterate over children */
-      result = [...result, ...this.getChildrenOfTypes(component.children, types, pageComponents)];
+      result = [...result, ...this.getChildrenOfTypes(component.children, types, pageComponents, pageStateScoped)];
     }
 
     return result;

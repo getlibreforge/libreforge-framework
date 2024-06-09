@@ -29,13 +29,12 @@ export class FormSubmitAction extends AbstractAction {
     const { componentId, pageComponents, currentPageState, dispatch, 
             container, pagination, collectionRefIdx, snackbar } = context;
 
+    const utils = new ComponentUtils();
+
     const submitButton = pageComponents[componentId];
     const url = submitButton.props['_x_url'] + (!!pagination ? `?size=${pagination.size}&page=${pagination.page}`: '');
     const method = submitButton.props['_x_method']
 
-    console.debug(`FormSubmitAction called, url = ${url}, method - ${method}`);
-
-    const utils = new ComponentUtils();
     /* Lookup for Form component */
     const form = utils.getParentOfType(submitButton, 'Form', pageComponents);
     if (!form || form.type !== 'Form') {
@@ -63,7 +62,7 @@ export class FormSubmitAction extends AbstractAction {
     const children: IComponent[] = utils.getChildrenOfTypes(form.children, 
       {'Input': 'Input', 'Textarea': 'Textarea', 'PasswordInput': 'PasswordInput', 'Checkbox': 'Checkbox', 
       'LocalDate': 'LocalDate', 'Select': 'Select'}, 
-      pageComponents);
+      pageComponents, pageStateScoped);
 
     /* Validate before submitting */
     const allRules = container.getAll<AbstractValidationRule>(SYMBOL_VALIDATION_RULE)

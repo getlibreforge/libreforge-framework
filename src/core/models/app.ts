@@ -24,6 +24,13 @@ const DEFAULT_PAGE_STATE = {
 };
 
 const DEFAULT_SHARED_STATE = {
+  /** 
+   * Last Event is used by the Business Rule component to react and understand, 
+   * whether rules have to be evaluated 
+   */
+  _lastApplicationEvent: undefined,
+  _lastBusinessRulesExecutionTime: -1,
+
   globalLoader: false,  
   wizardStep: 0,  
   errorMessage: undefined
@@ -188,7 +195,36 @@ const app = createModel()({
           globalLoader: false,
         },
       };
-    }   
+    },
+    setLastApplicationEvent(
+      state: AppState,
+      payload: { type: 'APP_LOADED' | 'VALUE_CHANGED', timespamp: number },
+    ): AppState {
+      const { sharedState } = state;
+      return {
+        ...state,
+        sharedState: {
+          ...sharedState,
+          _lastApplicationEvent: {
+            type: payload.type,
+            timespamp: payload.timespamp
+          },
+        },
+      };
+    }, 
+    setLastBusinessRulesExecutionTime(
+      state: AppState,
+      payload: { timespamp: number },
+    ): AppState {
+      const { sharedState } = state;
+      return {
+        ...state,
+        sharedState: {
+          ...sharedState,
+          _lastBusinessRulesExecutionTime: payload.timespamp,
+        },
+      };
+    },    
   },
 });
 

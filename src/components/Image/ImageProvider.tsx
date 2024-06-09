@@ -7,6 +7,7 @@ import * as Chakra from '@chakra-ui/react';
 import NativeComponentRenderer from '../NativeComponentRenderer';
 import { IComponent, IComponents } from "@libreforge/libreforge-framework-shared"
 import { BiImage } from "react-icons/bi";
+import ImageComponent from './ImageComponent';
 
 @injectable()
 export class ImageProvider extends StandardComponentProvider {
@@ -30,8 +31,8 @@ export class ImageProvider extends StandardComponentProvider {
     forwardedProps: any, overridenComponentPageState: any, collectionRefIdx: number | undefined): ReactNode {
 
     return (
-      <NativeComponentRenderer
-        type={Chakra['Image']} pageComponents={pageComponents} collectionRefIdx={collectionRefIdx}
+      <ImageComponent
+        pageComponents={pageComponents} collectionRefIdx={collectionRefIdx}
         designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
         {...component.props} {...forwardedProps}
       />

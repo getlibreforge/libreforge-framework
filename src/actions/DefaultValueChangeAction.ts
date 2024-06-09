@@ -22,7 +22,10 @@ export class DefaultValueChangeAction extends AbstractValueChangeAction {
 
     /* TODO: Clean error, if field is touched */
 
+    /* TODO: emit event */
+
     /* Set value */
     dispatch.app.changeCurrentPageState({ name: componentName, value });
+    dispatch.app.setLastApplicationEvent({ type: 'VALUE_CHANGED', timespamp: new Date().getTime() });
   }
 }

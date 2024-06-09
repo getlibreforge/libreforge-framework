@@ -1,5 +1,6 @@
 import { Container } from 'inversify';
 import { RematchDispatch } from '@rematch/core';
+import { variableNameHidden } from './NameUtils';
 
 export class ScriptContext {
 
@@ -15,11 +16,42 @@ export class ScriptContext {
     this.container = container;    
   }
 
-  async getValue(name: string) {
-    return this.currentPageState[name];
+  async getValue(componentName: string) {
+    return this.currentPageState[componentName];
   }
 
-  async setValue(name: string, value: any) {
-    await this.dispatch.app.changeCurrentPageState({ name, value });;
+  async setValue(componentName: string, value: any) {
+    await this.dispatch.app.changeCurrentPageState({ name: componentName, value });
   }
+
+  async setDefault(componentName: string, defaultValue: any) {
+    const value = await this.currentPageState[componentName];
+    if (!value) {
+      await this.dispatch.app.changeCurrentPageState({ name: componentName, value: defaultValue });
+    }
+  }  
+
+  async setHidden(componentName: string) {
+    await this.dispatch.app.changeCurrentPageState({ name: variableNameHidden(componentName), value: true });
+  }
+
+  async setVisible(componentName: string) {
+    await this.dispatch.app.changeCurrentPageState({ name: variableNameHidden(componentName), value: undefined });
+  }
+  
+  getLength(value: any) {
+    if (!!value) {
+      return value.length;
+    }
+
+    return undefined;  
+  }
+
+  async showBusinessError(errorMessage: string) {
+    await this.dispatch.app.setSharedErrorMessage({ message: errorMessage });
+  }
+  
+  async hideBusinessError() {
+    await this.dispatch.app.setSharedErrorMessage({ message: undefined });
+  }  
 }

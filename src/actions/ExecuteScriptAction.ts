@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { injectable } from 'inversify';
 import { AbstractAction, ActionExecutionContext } from './AbstractAction';
-import { ScriptContext } from '../utils/ScriptContext';
+import DynamicScriptExecutor from '../utils/DynamicScriptExecutor';
 
 const ARG_QUERY_SCRIPT = "script";
 
@@ -26,22 +26,7 @@ export class ExecuteScriptAction extends AbstractAction {
       return { next: false, result: undefined };
     }
 
-    /**
-     * _Example_
-     * const value = await ctx.getValue("userId"); 
-     * alert(value);
-     */
-    try {
-      const ctx = new ScriptContext(dispatch, currentPageState, sharedState, container);
-      const body = `async function( ctx ) { ${script} }`;
-      const wrap = (s: string) => "{ return " + s + " };"
-      const func = new Function( wrap(body) );
-      func.call( null ).call( null, ctx ); /* invoke the function using arguments */
-
-    } catch (error) {
-      console.error(error);
-    }
-
+    new DynamicScriptExecutor().execute(script, dispatch, currentPageState, sharedState, container);
     return { next: true, result: undefined };
   }
 

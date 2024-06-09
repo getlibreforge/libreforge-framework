@@ -32,3 +32,9 @@ export const getSharedErrorMessage = (state: RootState) =>
 
 export const getWizardStep = (state: RootState) =>
   state.app.sharedState.wizardStep;
+
+export const getLastApplicationEvent = (state: RootState) =>
+  state.app.sharedState._lastApplicationEvent;
+
+export const getLastBusinessRulesExecutionTime = (state: RootState) =>
+  state.app.sharedState._lastBusinessRulesExecutionTime;

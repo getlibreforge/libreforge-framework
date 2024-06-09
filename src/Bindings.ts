@@ -44,6 +44,7 @@ import { RouteToPageAction } from './actions/RouteToPageAction';
 import { AbstractValidationRule, SYMBOL_VALIDATION_RULE } from './validation/AbstractValidationRule';
 import { RequiredValidationRule } from './validation/RequiredValidationRule';
 import { LengthBetweenValidationRule } from './validation/LengthBetweenValidationRule';
+import { BusinessRulesProvider } from './components/Tools/BusinessRules';
 
 
 export function bindProviders(
@@ -87,6 +88,7 @@ export function bindProviders(
   /* Page Actions */
   container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(ResourceLoadPageActionProvider);
   container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(OnPageLoadActionProvider);
+  container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(BusinessRulesProvider);
 
   container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(FormProvider);
   container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(FormControlProvider);
