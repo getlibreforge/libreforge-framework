@@ -44,7 +44,7 @@ export class BusinessRulesProvider extends StandardComponentProvider {
       {
         control: InspectorControlEnum.BusinessRulesControl,
         props: { name: 'brules', label: 'Rules' },
-      },      
+      },
     ];
   }
 

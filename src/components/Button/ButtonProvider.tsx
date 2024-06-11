@@ -71,7 +71,11 @@ export class ButtonProvider extends StandardComponentProvider {
       {
         control: InspectorControlEnum.ActionChangeControl,
         props: { name: '_x_onclick_3', label: 'onClick #3' },
-      },           
+      },
+      {
+        control: InspectorControlEnum.ActionGroupControl,
+        props: { name: 'actionGroup', label: 'Actions' },
+      },
     ];
   }
 
