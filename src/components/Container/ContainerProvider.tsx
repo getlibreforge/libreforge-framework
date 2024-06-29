@@ -35,7 +35,7 @@ export class ContainerProvider extends StandardComponentProvider {
         pageComponents={pageComponents} pages={pages} overridenComponentPageState={overridenComponentPageState}
         designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
         wrapperComponent={wrapperComponent} wrapperContainer={wrapperContainer}
-        {...component.props} {...forwardedProps}
+        {...component.props} {...forwardedProps} componentId={component.id}
       />
     );
   }

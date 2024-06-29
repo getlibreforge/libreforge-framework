@@ -32,7 +32,7 @@ export class DividerProvider extends StandardComponentProvider {
       <NativeComponentRenderer
         type={Chakra['Divider']} pageComponents={pageComponents} collectionRefIdx={collectionRefIdx}
         designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
-        {...component.props} {...forwardedProps}
+        {...component.props} {...forwardedProps} componentId={component.id}
       />
     );
   }

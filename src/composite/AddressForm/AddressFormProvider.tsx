@@ -31,7 +31,7 @@ export class AddressFormProvider extends CompositeComponentProvider {
       <AddressFormComponent children={component.children}
         pageComponents={pageComponents} pages={pages} 
         designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
-        {...component.props} {...forwardedProps}
+        {...component.props} {...forwardedProps} componentId={component.id}
       />
     );
   }

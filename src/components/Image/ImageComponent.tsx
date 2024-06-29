@@ -13,7 +13,8 @@ const ImageComponent = forwardRef(
     const value = usePageStateValueByComponentRef(props._x_name, props.overridenComponentPageState);
     const hidden = useHiddenByComponentRef(props._x_name, props.overridenComponentPageState);
     
-    let propsElement = useActionHandlers({ ...props, ref, ...value, ...hidden });    
+    const actionGroup = props.pageComponents[props.componentId].actionGroup;
+    let propsElement = useActionHandlers({ ...props, ref, ...value, ...hidden }, actionGroup);    
 
     const elementProps = cleanupCustomComponentProps(propsElement)
     return React.createElement(Chakra['Image'], {

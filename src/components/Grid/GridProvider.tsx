@@ -35,7 +35,7 @@ export class GridProvider extends StandardComponentProvider {
         pageComponents={pageComponents} collectionRefIdx={collectionRefIdx}
         designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
         wrapperComponent={wrapperComponent} wrapperContainer={wrapperContainer}
-        {...component.props} {...forwardedProps}
+        {...component.props} {...forwardedProps} componentId={component.id}
       />
     );
   }

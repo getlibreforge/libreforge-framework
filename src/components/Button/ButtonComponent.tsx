@@ -2,13 +2,14 @@ import { Button } from '@chakra-ui/react';
 import { useActionHandlers } from '../../hooks/useActionHandlers';
 import { iconsList } from '../../iconsList';
 import { forwardRef } from 'react';
-import { IPages } from '@libreforge/libreforge-framework-shared';
+import { IComponents, IPages } from '@libreforge/libreforge-framework-shared';
 import { cleanupCustomComponentProps } from '../../utils/CustomPropsMapper';
 
 const ButtonComponent = forwardRef((props: { componentId: string, pages: IPages, 
-    componentPage: string, collectionRefIdx: number | undefined }, ref) => {
+    pageComponents: IComponents, componentPage: string, collectionRefIdx: number | undefined }, ref) => {
 
-  let targetProps = useActionHandlers(props);
+  const actionGroup = props.pageComponents[props.componentId].actionGroup;
+  let targetProps = useActionHandlers(props, actionGroup);
 
   if (targetProps.leftIcon) {
     if (Object.keys(iconsList).includes(targetProps.leftIcon)) {

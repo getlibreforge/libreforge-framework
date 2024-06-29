@@ -11,7 +11,8 @@ const PasswordInputComponent = forwardRef(
     const handleClick = () => setShow(!show);
 
     const value = usePageStateValueByComponentRef(props._x_name);
-    let propsElement = useActionHandlers({ ...props, ref, ...value });    
+    const actionGroup = props.pageComponents[props.componentId].actionGroup;
+    let propsElement = useActionHandlers({ ...props, ref, ...value }, actionGroup);    
 
     const elementProps = cleanupCustomComponentProps(propsElement);    
 

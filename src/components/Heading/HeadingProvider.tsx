@@ -34,8 +34,7 @@ export class HeadingProvider extends StandardComponentProvider {
         type={Chakra['Heading']}
         pageComponents={pageComponents} collectionRefIdx={collectionRefIdx}
         designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
-        {...component.props}
-        {...forwardedProps}
+        {...component.props} {...forwardedProps} componentId={component.id}
       />
     );
   }

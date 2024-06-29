@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/react';
 import { useSnackbar } from '../../../../hooks/useSnackbar';
 import { getCurrentPageState, getSharedState } from '../../../../core';
 import { useSelector } from 'react-redux';
-import { useDispatch, usePropBasedActions } from '../../../../hooks';
+import { useDispatch, useActions } from '../../../../hooks';
 import { cleanupCustomComponentProps } from '../../../../utils/CustomPropsMapper';
 import { VscGithubAction } from "react-icons/vsc";
 import { InversifyContainerProviderContext, ProviderFactory } from '../../../../utils';
@@ -22,7 +22,9 @@ const OnPageLoadActionComponent = forwardRef((props: { componentId: string,
   const sharedState = useSelector(getSharedState);
   const container = useContext(InversifyContainerProviderContext);
   const factory = new ProviderFactory(container);
-  const propBasedActions = usePropBasedActions(['_x_action'], props);
+
+  const actionGroup = props.pageComponents[props.componentId].actionGroup;
+  const propBasedActions = useActions(actionGroup, props);
   const logId = `_action_executed_${props.componentId}`;
 
   if (true === props.designMode) {

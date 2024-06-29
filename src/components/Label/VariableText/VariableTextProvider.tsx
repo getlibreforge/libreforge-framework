@@ -33,8 +33,7 @@ export class VariableTextProvider extends StandardComponentProvider {
         pageComponents={pageComponents} pages={pages} 
         overridenComponentPageState={overridenComponentPageState} collectionRefIdx={collectionRefIdx}
         designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
-        {...component.props}
-        {...forwardedProps}
+        {...component.props} {...forwardedProps} componentId={component.id}
       />
     );
   }

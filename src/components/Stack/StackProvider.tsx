@@ -36,7 +36,7 @@ export class StackProvider extends StandardComponentProvider {
         overridenComponentPageState={overridenComponentPageState}
         designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
         wrapperComponent={wrapperComponent} wrapperContainer={wrapperContainer}
-        {...component.props} {...forwardedProps}
+        {...component.props} {...forwardedProps} componentId={component.id}
       />
     );
   }

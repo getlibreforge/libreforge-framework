@@ -31,7 +31,7 @@ const ContainerComponent = forwardRef((props: ContainerComponentProps, ref) => {
       return (
         <ChildComponentRenderer key={key} componentName={key} overridenComponentPageState={overridenComponentPageState}
           designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
-          pageComponents={pageComponents} collectionRefIdx={collectionRefIdx}
+          pageComponents={pageComponents} collectionRefIdx={collectionRefIdx} 
           pages={pages} wrapperComponent={wrapperComponent} wrapperContainer={wrapperContainer} />        
       )
     }),

@@ -31,7 +31,7 @@ export class CheckboxProvider extends StandardComponentProvider {
       <CheckboxComponent
         designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
         pageComponents={pageComponents} collectionRefIdx={collectionRefIdx}
-        {...component.props} {...forwardedProps}
+        {...component.props} {...forwardedProps} componentId={component.id}
       />
     );
   }

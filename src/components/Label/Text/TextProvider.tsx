@@ -34,8 +34,7 @@ export class TextProvider extends StandardComponentProvider {
         type={Chakra['Text']}
         pageComponents={pageComponents} collectionRefIdx={collectionRefIdx}
         designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
-        {...component.props}
-        {...forwardedProps}
+        {...component.props} {...forwardedProps} componentId={component.id}
       />
     );
   }

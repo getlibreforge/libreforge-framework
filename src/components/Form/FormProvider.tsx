@@ -35,7 +35,7 @@ export class FormProvider extends StandardComponentProvider {
         pageComponents={pageComponents} pages={pages} overridenComponentPageState={overridenComponentPageState}
         designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
         wrapperComponent={wrapperComponent} wrapperContainer={wrapperContainer} collectionRefIdx={collectionRefIdx}
-        {...component.props} {...forwardedProps}
+        {...component.props} {...forwardedProps} componentId={component.id}
       />
     );
   }

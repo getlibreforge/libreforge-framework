@@ -34,7 +34,7 @@ export class LinkProvider extends StandardComponentProvider {
           type={Chakra['Link']} 
           designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
           pageComponents={pageComponents} collectionRefIdx={collectionRefIdx}
-          {...component.props} {...forwardedProps}
+          {...component.props} {...forwardedProps} componentId={component.id}
         />
     );
   }
@@ -49,19 +49,11 @@ export class LinkProvider extends StandardComponentProvider {
       {
         control: InspectorControlEnum.SwitchControl,
         props: { name: 'isExternal', label: 'External' },
+      },        
+      { 
+        control: InspectorControlEnum.ActionGroupControl, 
+        props: { name: 'actionGroup', label: 'Actions' }, 
       },
-      {
-        control: InspectorControlEnum.ActionChangeControl,
-        props: { name: '_x_onclick_1', label: 'onClick #1' },
-      },
-      {
-        control: InspectorControlEnum.ActionChangeControl,
-        props: { name: '_x_onclick_2', label: 'onClick #2' },
-      }, 
-      {
-        control: InspectorControlEnum.ActionChangeControl,
-        props: { name: '_x_onclick_3', label: 'onClick #3' },
-      },            
     ];
   }
 

@@ -1,6 +1,6 @@
 {
   "name": "@libreforge/libreforge-framework",
-  "version": "1.0.35",
+  "version": "1.0.44",
   "description": "``` npm login npm whoami",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,7 +20,7 @@
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.8.1",
-    "@libreforge/libreforge-framework-shared": "^1.0.22",
+    "@libreforge/libreforge-framework-shared": "^1.0.25",
     "@rematch/core": "^2.2.0",
     "@types/uuid": "^9.0.7",
     "date-fns": "^2.30.0",

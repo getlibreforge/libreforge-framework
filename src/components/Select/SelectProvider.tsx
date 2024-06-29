@@ -32,8 +32,7 @@ export class SelectProvider extends StandardComponentProvider {
       <SelectPreview
         designMode={designMode} collectionRefIdx={collectionRefIdx}
         designModeInteractivityDisabled={designModeInteractivityDisabled}
-        {...component.props}
-        {...forwardedProps}
+        {...component.props} {...forwardedProps} componentId={component.id}
       />
     );
   }

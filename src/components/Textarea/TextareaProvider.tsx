@@ -34,7 +34,7 @@ export class TextareaProvider extends StandardComponentProvider {
         type={Chakra['Textarea']}
         designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
         pageComponents={pageComponents} collectionRefIdx={collectionRefIdx}
-        {...component.props} {...forwardedProps}
+        {...component.props} {...forwardedProps} componentId={component.id}
       />
     );
   }

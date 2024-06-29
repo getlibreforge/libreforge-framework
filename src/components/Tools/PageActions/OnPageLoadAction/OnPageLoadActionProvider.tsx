@@ -41,7 +41,10 @@ export class OnPageLoadActionProvider extends StandardComponentProvider {
 
   getInspectorControls(): { control: InspectorControlEnum; props: any }[] {
     return [ 
-      { control: InspectorControlEnum.ActionChangeControl, props: { name: '_x_action', label: 'Action' } },
+      {
+        control: InspectorControlEnum.ActionGroupControl,
+        props: { name: 'actionGroup', label: 'Actions' },
+      },      
     ];
   }
 

@@ -10,10 +10,11 @@ import { InversifyContainerProviderContext } from '../utils/inversify';
 import { ProviderFactory } from '../utils/ProviderFactory';
 import { useSnackbar } from '../hooks/useSnackbar';
 import { useNavigate } from "react-router-dom";
-import { usePropBasedActions } from './usePropBasedActions';
+import { useActions } from './useActions';
 import { ActionExecutionContext } from '../actions';
+import { IActionGroup } from '@libreforge/libreforge-framework-shared';
 
-export const useActionHandlers = (props: any, page: number = 0, size: number = 10) => {
+export const useActionHandlers = (props: any, actionGroup: IActionGroup, page: number = 0, size: number = 10) => {
   const dispatch = useDispatch();
   const router = useNavigate();
   const snackbar = useSnackbar();
@@ -26,7 +27,7 @@ export const useActionHandlers = (props: any, page: number = 0, size: number = 1
 
   let targetProps = { ...props };
   const { _x_onchange, pageComponents, designMode, collectionRefIdx } = targetProps;
-  const actions = usePropBasedActions(['_x_onclick_1', '_x_onclick_2', '_x_onclick_3'], props);
+  const actions = useActions(actionGroup, props);
 
   if (false === designMode) {
 

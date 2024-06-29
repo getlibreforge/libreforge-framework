@@ -24,8 +24,8 @@ const FormSubmitButtonComponent = forwardRef((props: { componentId: string, page
 
   console.warn(`Pagination component found, componentId - ${pagination?.id}, page - ${page}, size - ${size}`);
 
-
-  let targetProps = useActionHandlers(props, page, size);  
+  const actionGroup = props.pageComponents[props.componentId].actionGroup;
+  let targetProps = useActionHandlers(props, actionGroup, page, size);  
 
   if (targetProps.leftIcon) {
     if (Object.keys(iconsList).includes(targetProps.leftIcon)) {

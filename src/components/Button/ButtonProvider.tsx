@@ -61,18 +61,6 @@ export class ButtonProvider extends StandardComponentProvider {
         props: { name: 'rightIcon', label: 'Right Icon' },
       },
       {
-        control: InspectorControlEnum.ActionChangeControl,
-        props: { name: '_x_onclick_1', label: 'onClick #1' },
-      },
-      {
-        control: InspectorControlEnum.ActionChangeControl,
-        props: { name: '_x_onclick_2', label: 'onClick #2' },
-      }, 
-      {
-        control: InspectorControlEnum.ActionChangeControl,
-        props: { name: '_x_onclick_3', label: 'onClick #3' },
-      },
-      {
         control: InspectorControlEnum.ActionGroupControl,
         props: { name: 'actionGroup', label: 'Actions' },
       },

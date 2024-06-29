@@ -46,10 +46,8 @@ export class FormSubmitButtonProvider extends StandardComponentProvider {
       { control: InspectorControlEnum.IconControl, props: { name: 'leftIcon', label: 'Left Icon' } },
       { control: InspectorControlEnum.IconControl, props: { name: 'rightIcon', label: 'Right Icon' }, },
       { control: InspectorControlEnum.TextControl, props: { name: '_x_url', label: 'URL' } },
-      { control: InspectorControlEnum.TextControl, props: { name: '_x_method', label: 'Method' } },      
-      { control: InspectorControlEnum.ActionChangeControl, props: { name: '_x_onclick_1', label: 'onClick #1' } },
-      { control: InspectorControlEnum.ActionChangeControl, props: { name: '_x_onclick_2', label: 'onClick #2' } }, 
-      { control: InspectorControlEnum.ActionChangeControl, props: { name: '_x_onclick_3', label: 'onClick #3' } },           
+      { control: InspectorControlEnum.TextControl, props: { name: '_x_method', label: 'Method' } },
+      { control: InspectorControlEnum.ActionGroupControl, props: { name: 'actionGroup', label: 'Actions' } },
     ];
   }
 

@@ -35,7 +35,7 @@ export class ComponentPaginationProvider extends StandardComponentProvider {
         pageComponents={pageComponents} pages={pages} componentId={component.id}
         designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
         wrapperComponent={wrapperComponent} wrapperContainer={wrapperContainer}
-        {...component.props} {...forwardedProps}  
+        {...component.props} {...forwardedProps}
       />
     );
   }

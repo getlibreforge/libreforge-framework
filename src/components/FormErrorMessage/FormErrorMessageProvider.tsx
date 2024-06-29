@@ -32,8 +32,7 @@ export class FormErrorMessageProvider extends StandardComponentProvider {
       <FormErrorMessageComponent
         pageComponents={pageComponents} collectionRefIdx={collectionRefIdx} componentId={component.id}
         designMode={designMode} designModeInteractivityDisabled={designModeInteractivityDisabled}
-        {...component.props}
-        {...forwardedProps}
+        {...component.props} {...forwardedProps}
       />
     );
   }
