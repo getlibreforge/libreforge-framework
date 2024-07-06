@@ -1,6 +1,6 @@
 import { Container } from 'inversify';
 import { RematchDispatch } from '@rematch/core';
-import { variableNameHidden } from './NameUtils';
+import { variableNameHidden, variableNamePropsOverride } from './NameUtils';
 
 export class ScriptContext {
 
@@ -42,6 +42,15 @@ export class ScriptContext {
   async setVisible(componentName: string) {
     await this.dispatch.app.changeCurrentPageState({ name: variableNameHidden(componentName), value: undefined });
   }
+
+  async setPropValue(componentName: string, propName: string, value: any) {
+    const propsAttributeName = variableNamePropsOverride(componentName);
+    const currentState = await this.currentPageState[componentName]?.propsAttributeName || {};
+
+    await this.dispatch.app.changeCurrentPageState({ name: propsAttributeName, value: {...currentState, [propName]: value} });
+  }  
+
+  // variableNamePropsOverride
   
   getLength(value: any) {
     if (!!value) {
