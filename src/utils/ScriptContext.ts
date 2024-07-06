@@ -24,6 +24,10 @@ export class ScriptContext {
     await this.dispatch.app.changeCurrentPageState({ name: componentName, value });
   }
 
+  async setSharedValue(attribute: string, value: any) {
+    await this.dispatch.app.changeSharedState({ name: attribute, value });
+  }
+
   async setDefault(componentName: string, defaultValue: any) {
     const value = await this.currentPageState[componentName];
     if (!value) {
