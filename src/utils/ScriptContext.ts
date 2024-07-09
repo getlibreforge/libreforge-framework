@@ -18,7 +18,7 @@ export class ScriptContext {
     this.prevExecutionData = prevExecutionData;   
   }
 
-  getPrevData() {
+  getInput() {
     return this.prevExecutionData;
   }
 
