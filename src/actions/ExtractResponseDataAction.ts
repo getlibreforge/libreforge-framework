@@ -26,15 +26,13 @@ export class ExtractResponseDataAction extends AbstractAction {
 
     const value = prevExecutionState?.data[attribute];
     const metaTotalHeader = `x-meta-total-${attribute}`;
-    const metadataTotal = prevExecutionState?.headers.get(metaTotalHeader);
+    const metadataTotal = prevExecutionState?.headers?.get(metaTotalHeader);
 
     const changeValue = !!value ? { [attribute]: value }: {};
     const changeMetadata = !!metadataTotal ? { [`_meta_total_${attribute}`]: metadataTotal }: {};
-    const changeValues = { ...changeValue, ...changeMetadata };
+    const data = { ...changeValue, ...changeMetadata };
 
-    await dispatch.app.changeCurrentPageStateBulk({ items: changeValues });
-
-    return { next: true, result: undefined };
+    return { next: true, result: { data, headers: undefined } };
   }
 
   override getArgsDefinition(): { name: string; type: string; label: string }[] {

@@ -16,18 +16,17 @@ export class ExecuteScriptAction extends AbstractAction {
 
   async execute(context: ActionExecutionContext): Promise<{ next: boolean, result: any }> {
 
-    const { args, sharedState, currentPageState, dispatch, container } = context;
-    console.warn(`${this.name} called`);
+    const { args, sharedState, currentPageState, dispatch, container, prevExecutionState } = context;
+    const prevExecutionData = prevExecutionState?.data || {};
 
     const script = args[ARG_QUERY_SCRIPT];
-
     if (!script) {
       console.error(`${this.name} > ${ARG_QUERY_SCRIPT} argument not provided`);
       return { next: false, result: undefined };
     }
 
-    new DynamicScriptExecutor().execute(script, dispatch, currentPageState, sharedState, container);
-    return { next: true, result: undefined };
+    const data = await new DynamicScriptExecutor().execute(script, dispatch, currentPageState, sharedState, container, prevExecutionData);
+    return { next: true, result: { data, headers: undefined} };
   }
 
   override getArgsDefinition(): { name: string; type: string; label: string }[] {

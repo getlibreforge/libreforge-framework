@@ -8,12 +8,18 @@ export class ScriptContext {
   private currentPageState: any;
   private sharedState: any;
   private container: Container;
+  private prevExecutionData: any;
 
-  constructor(dispatch: RematchDispatch<any>, currentPageState: any, sharedState: any, container: Container) {
+  constructor(dispatch: RematchDispatch<any>, currentPageState: any, sharedState: any, container: Container, prevExecutionData: any) {
     this.dispatch = dispatch;
     this.currentPageState = currentPageState;
     this.sharedState = sharedState;
-    this.container = container;    
+    this.container = container; 
+    this.prevExecutionData = prevExecutionData;   
+  }
+
+  getPrevData() {
+    return this.prevExecutionData;
   }
 
   async getValue(componentName: string) {
@@ -50,8 +56,6 @@ export class ScriptContext {
     await this.dispatch.app.changeCurrentPageState({ name: propsAttributeName, value: {...currentState, [propName]: value} });
   }  
 
-  // variableNamePropsOverride
-  
   getLength(value: any) {
     if (!!value) {
       return value.length;

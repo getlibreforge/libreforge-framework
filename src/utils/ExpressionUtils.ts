@@ -1,16 +1,30 @@
-const REGEX_SINGLE_VARIABLE = /\$\{(.*)\}/g;
+const REGEX_SINGLE_VARIABLE = /\$\{([a-zA-Z_$]*)\}/g;
 
-export function getExpressionVariableName(expression: string) {
+export function getExpressionVariableNames(expression: string): string[] {
   const matches = expression.matchAll(REGEX_SINGLE_VARIABLE);
-  const match = matches.next();
+  const result = [];
 
-  return !!match.value ? match.value?.[1]: undefined;
+  let match = undefined;
+  do {
+    match = matches.next()
+    if (!!match && !!match.value) {
+      result.push(match.value[1])
+    }
+  } while (!!match && !!match.value);
+
+  return result; 
 }
 
-export function replaceVariable(text: string, variable: string, value: any) {  
-  if (!!variable) {
-    return text.replace(`\$\{${variable}\}`, !!value ? value: '')
-  } else {
-    return text;  
+export function replaceVariable(text: string, variables: string[], state: any) {  
+  const varsToEval = variables || [];
+  let result = text;
+
+  for (let i=0; i<varsToEval.length; i++) {
+    const variable = varsToEval[i];
+    const value = state[variable];
+
+    result = result.replace(`\$\{${variable}\}`, !!value ? value: '');
   }
+
+  return result;
 }

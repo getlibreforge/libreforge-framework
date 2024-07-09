@@ -4,7 +4,7 @@ import { SampleDictionaryDataProvider } from './providers/SampleDictionaryDataPr
 import { AbstractAction, SYMBOL_ACTION_PROVIDER } from './actions/AbstractAction';
 import { SYMBOL_VALUE_CHANGE_ACTION, AbstractValueChangeAction } from './actions/AbstractValueChangeAction';
 import { DefaultValueChangeAction } from './actions/DefaultValueChangeAction';
-import { ClickByRefAction, DebugStateAction, ExecuteScriptAction, ExtractLocationDataAction, ExtractResponseDataAction, ExtractResponseDataToSharedAction, FetchAction, RouteToNextWizardStepAction, RouteToPageRedirectAwareAction, RouteToPrevWizardStepAction } from './actions';
+import { ClickByRefAction, DebugStateAction, ExecuteScriptAction, ExtractLocationDataAction, ExtractResponseDataAction, FetchAction, RouteToNextWizardStepAction, RouteToPageRedirectAwareAction, RouteToPrevWizardStepAction, StoreDataAction } from './actions';
 import { FormSubmitAction } from './actions/FormSubmitAction';
 import { AbstractI18nLookupService, DefaultI18nLookupService, SYMBOL_I18N_PROVIDER } from './services';
 import { AuthorizationManager, SYMBOL_AUTHORIZATION_MANAGER } from './security/AuthorizationManager';
@@ -38,10 +38,10 @@ export function bindProviders(
 
   container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(FormSubmitAction);
   container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(ExtractResponseDataAction);
-  container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(ExtractResponseDataToSharedAction);
   container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(ExtractLocationDataAction);
   container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(ExecuteScriptAction);
   container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(ClickByRefAction);
+  container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(StoreDataAction);
 
   /* Actions to move between the pages */
   container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(routeToPageAction);

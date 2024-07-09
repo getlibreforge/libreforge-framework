@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { inject, injectable } from 'inversify';
 import { IComponent } from '@libreforge/libreforge-framework-shared';
 import FormSubmitService from '../services/FormSubmitService';
-import { ComponentUtils } from '../utils';
+import { ComponentUtils, getExpressionVariableNames, replaceVariable } from '../utils';
 import { AbstractAction, ActionExecutionContext } from './AbstractAction';
 import { DefaultI18nLookupService, SYMBOL_I18N_PROVIDER } from '../services';
 import { AbstractValidationRule, SYMBOL_VALIDATION_RULE } from '../validation';
@@ -32,8 +32,11 @@ export class FormSubmitAction extends AbstractAction {
     const utils = new ComponentUtils();
 
     const submitButton = pageComponents[componentId];
-    const url = submitButton.props['_x_url'] + (!!pagination ? `?size=${pagination.size}&page=${pagination.page}`: '');
-    const method = submitButton.props['_x_method']
+    const method = submitButton.props['_x_method'];
+
+    const rawUrl = submitButton.props['_x_url'] + (!!pagination ? `?size=${pagination.size}&page=${pagination.page}`: '');
+    const rawUrlVariables = getExpressionVariableNames(rawUrl);
+    const targetUrl = replaceVariable(rawUrl, rawUrlVariables, currentPageState);
 
     /* Lookup for Form component */
     const form = utils.getParentOfType(submitButton, 'Form', pageComponents);
@@ -93,7 +96,7 @@ export class FormSubmitAction extends AbstractAction {
       payload[name] = valueByName
     });
 
-    const response = await FormSubmitService.submit("", url, method, payload, {});
+    const response = await FormSubmitService.submit("", targetUrl, method, payload, {});
     if (response.status === 422) {
       /* Business rules validation error */
 

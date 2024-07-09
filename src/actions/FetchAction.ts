@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import { injectable } from 'inversify';
 import { AbstractAction, ActionExecutionContext } from './AbstractAction';
 import FormSubmitService from '../services/FormSubmitService';
+import { getExpressionVariableNames, replaceVariable } from '../utils';
 
 const ARG_URL = "url";
 
@@ -19,22 +20,20 @@ export class FetchAction extends AbstractAction {
     const { args, dispatch } = context;
     console.warn(`${this.name} called`);
 
-    const url = args[ARG_URL];
-    if (!url) {
+    const rawUrl = args[ARG_URL];
+    if (!rawUrl) {
       console.error(`Fetch > ${ARG_URL} argument not provided`);
       return { next: false, result: undefined };
     }
 
+    const rawUrlVariables = getExpressionVariableNames(rawUrl);
+    const targetUrl = replaceVariable(rawUrl, rawUrlVariables, context.currentPageState);
+
     /* Submitting */
-    const response = await FormSubmitService.load("", url);
+    const response = await FormSubmitService.load("", targetUrl);
     const data = await response.json();
 
-    const keys = Object.keys(data);
-    for (let i=0; i < keys.length; i++) {
-      await dispatch.app.changeCurrentPageState({ name: keys[i], value: data[keys[i]] });
-    }
-
-    return { next: true, result: undefined };
+    return { next: true, result: { data, headers: undefined} };
   }
 
   override getArgsDefinition(): { name: string; type: string; label: string }[] {

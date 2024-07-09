@@ -28,6 +28,8 @@ export const useActionHandlers = (props: any, actionGroup: IActionGroup, page: n
   let targetProps = { ...props };
   const { _x_onchange, pageComponents, designMode, collectionRefIdx } = targetProps;
   const actions = useActions(actionGroup, props);
+  console.log('Actions');
+  console.log(actions);
 
   if (false === designMode) {
 
