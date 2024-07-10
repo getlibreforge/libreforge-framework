@@ -8,16 +8,14 @@ import {
 import { useDispatch } from '../hooks/useDispatch';
 import { InversifyContainerProviderContext } from '../utils/inversify';
 import { ProviderFactory } from '../utils/ProviderFactory';
-import { useSnackbar } from '../hooks/useSnackbar';
-import { useNavigate } from "react-router-dom";
 import { useActions } from './useActions';
 import { ActionExecutionContext } from '../actions';
 import { IActionGroup } from '@libreforge/libreforge-framework-shared';
 
-export const useActionHandlers = (props: any, actionGroup: IActionGroup, page: number = 0, size: number = 10) => {
+export const useActionHandlers = (props: any, actionGroup: IActionGroup, 
+    router: any, snackbar: any, page: number = 0, size: number = 10) => {
+
   const dispatch = useDispatch();
-  const router = useNavigate();
-  const snackbar = useSnackbar();
   const currentPageState = useSelector(getCurrentPageState);
   const sharedState = useSelector(getSharedState);
   const container = useContext(InversifyContainerProviderContext);
@@ -36,8 +34,10 @@ export const useActionHandlers = (props: any, actionGroup: IActionGroup, page: n
     targetProps = {
       ...props,
       onClick: async (e: MouseEvent) => {
-        e.preventDefault();
-        e.stopPropagation();
+        if (!!e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
 
         /* Enable loader, TODO: improve */
         await dispatch.app.setGlobalLoaderEnabled({});
