@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { injectable } from 'inversify';
 import { AbstractAction, ActionExecutionContext } from './AbstractAction';
-import DynamicScriptExecutor from '../utils/DynamicScriptExecutor';
+import DynamicScriptExecutor from '../script/DynamicScriptExecutor';
 
 const ARG_QUERY_SCRIPT = "script";
 

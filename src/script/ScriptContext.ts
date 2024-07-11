@@ -1,6 +1,7 @@
 import { Container } from 'inversify';
 import { RematchDispatch } from '@rematch/core';
-import { variableNameHidden, variableNamePropsOverride } from './NameUtils';
+import { variableNameHidden, variableNamePropsOverride } from '../utils/NameUtils';
+import { AbstractScriptExtension, SYMBOL_SCRIPT_EXTENSION } from './ext/AbstractScriptExtension';
 
 export class ScriptContext {
 
@@ -9,6 +10,7 @@ export class ScriptContext {
   private sharedState: any;
   private container: Container;
   private prevExecutionData: any;
+  private extensions: AbstractScriptExtension[];
 
   constructor(dispatch: RematchDispatch<any>, currentPageState: any, sharedState: any, container: Container, prevExecutionData: any) {
     this.dispatch = dispatch;
@@ -16,6 +18,18 @@ export class ScriptContext {
     this.sharedState = sharedState;
     this.container = container; 
     this.prevExecutionData = prevExecutionData;   
+
+    /* Get registered Script Extensions */
+    this.extensions = this.container.getAll<AbstractScriptExtension>(SYMBOL_SCRIPT_EXTENSION);
+  }
+
+  getExt(extName: string): AbstractScriptExtension {
+    const ext = this.extensions.find((ext) => ext.getName() === extName);
+    if (!ext) {
+      throw new Error(`${extName} not found`);
+    }
+
+    return ext;
   }
 
   getInput() {
