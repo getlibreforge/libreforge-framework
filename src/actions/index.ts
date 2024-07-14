@@ -1,6 +1,7 @@
 export * from "./AbstractAction"
 export * from "./AbstractRedirectAwareAction"
 export * from "./DebugStateAction"
+export * from "./AbstractValueChangeAction"
 export * from "./DefaultValueChangeAction"
 export * from "./FetchAction"
 export * from "./ExtractResponseDataAction"
