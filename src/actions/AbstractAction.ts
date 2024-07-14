@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import { Container, injectable } from 'inversify';
 import { RematchDispatch } from '@rematch/core';
 import { IComponents } from '@libreforge/libreforge-framework-shared';
+import { ActionVariableEvaluationService } from '../services';
 
 export const SYMBOL_ACTION_PROVIDER = 'AbstractAction';
 
@@ -19,6 +20,8 @@ export type ActionExecutionContext = {
   router: any,
   container: Container,
   prevExecutionState: { data: any, headers: any } | undefined,    
+  variableEvalService: ActionVariableEvaluationService,
+  
   pagination?: { page: number, size: number }  
 }
 

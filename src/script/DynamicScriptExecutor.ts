@@ -5,7 +5,7 @@ import { RematchDispatch } from '@rematch/core';
 export default class DynamicScriptExecutor {
 
     public execute = (script: string, dispatch: RematchDispatch<any>, currentPageState: any,
-            sharedState: any, container: Container, prevExecutionData: any) => {
+            sharedState: any, container: Container, router: any, prevExecutionData: any) => {
 
         /**
          * _Example_
@@ -13,7 +13,7 @@ export default class DynamicScriptExecutor {
          * alert(value);
          */
         try {
-            const ctx = new ScriptContext(dispatch, currentPageState, sharedState, container, prevExecutionData);
+            const ctx = new ScriptContext(dispatch, currentPageState, sharedState, container, router, prevExecutionData);
             const body = `async function( ctx ) { ${script} }`;
             const wrap = (s: string) => "{ return " + s + " };"
             const func = new Function( wrap(body) );

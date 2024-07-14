@@ -16,7 +16,7 @@ export class ExecuteScriptAction extends AbstractAction {
 
   async execute(context: ActionExecutionContext): Promise<{ next: boolean, result: any }> {
 
-    const { args, sharedState, currentPageState, dispatch, container, prevExecutionState } = context;
+    const { args, sharedState, currentPageState, dispatch, container, router, prevExecutionState } = context;
     const prevExecutionData = prevExecutionState?.data || {};
 
     const script = args[ARG_QUERY_SCRIPT];
@@ -25,7 +25,7 @@ export class ExecuteScriptAction extends AbstractAction {
       return { next: false, result: undefined };
     }
 
-    const data = await new DynamicScriptExecutor().execute(script, dispatch, currentPageState, sharedState, container, prevExecutionData);
+    const data = await new DynamicScriptExecutor().execute(script, dispatch, currentPageState, sharedState, container, router, prevExecutionData);
     return { next: true, result: { data, headers: undefined} };
   }
 

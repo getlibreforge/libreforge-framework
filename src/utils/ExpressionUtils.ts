@@ -1,3 +1,6 @@
+import { ActionExecutionContext } from "../actions";
+import { ActionVariableEvaluationService } from "../services";
+
 const REGEX_SINGLE_VARIABLE = /\$\{([a-zA-Z_$]*)\}/g;
 
 export function getExpressionVariableNames(expression: string): string[] {
@@ -15,13 +18,14 @@ export function getExpressionVariableNames(expression: string): string[] {
   return result; 
 }
 
-export function replaceVariable(text: string, variables: string[], state: any) {  
+export function replaceVariable(text: string, variables: string[], context: ActionExecutionContext) {  
+
   const varsToEval = variables || [];
   let result = text;
 
   for (let i=0; i<varsToEval.length; i++) {
     const variable = varsToEval[i];
-    const value = state[variable];
+    const value = context.variableEvalService.getValue(variable, context.prevExecutionState?.data, context.currentPageState);
 
     result = result.replace(`\$\{${variable}\}`, !!value ? value: '');
   }

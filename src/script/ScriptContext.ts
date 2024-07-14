@@ -9,15 +9,17 @@ export class ScriptContext {
   private currentPageState: any;
   private sharedState: any;
   private container: Container;
+  private router: any;
   private prevExecutionData: any;
   private extensions: AbstractScriptExtension[];
 
-  constructor(dispatch: RematchDispatch<any>, currentPageState: any, sharedState: any, container: Container, prevExecutionData: any) {
+  constructor(dispatch: RematchDispatch<any>, currentPageState: any, sharedState: any, container: Container, router: any, prevExecutionData: any) {
     this.dispatch = dispatch;
     this.currentPageState = currentPageState;
     this.sharedState = sharedState;
     this.container = container; 
-    this.prevExecutionData = prevExecutionData;   
+    this.router = router;
+    this.prevExecutionData = prevExecutionData;       
 
     /* Get registered Script Extensions */
     this.extensions = this.container.getAll<AbstractScriptExtension>(SYMBOL_SCRIPT_EXTENSION);
@@ -30,6 +32,10 @@ export class ScriptContext {
     }
 
     return ext;
+  }
+
+  getRouter() {
+    return this.router;
   }
 
   getInput() {

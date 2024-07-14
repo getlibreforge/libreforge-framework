@@ -27,7 +27,7 @@ export class FetchAction extends AbstractAction {
     }
 
     const rawUrlVariables = getExpressionVariableNames(rawUrl);
-    const targetUrl = replaceVariable(rawUrl, rawUrlVariables, context.currentPageState);
+    const targetUrl = replaceVariable(rawUrl, rawUrlVariables, context);
 
     /* Submitting */
     const response = await FormSubmitService.load("", targetUrl);

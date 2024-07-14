@@ -11,6 +11,7 @@ import { ProviderFactory } from '../utils/ProviderFactory';
 import { useActions } from './useActions';
 import { ActionExecutionContext } from '../actions';
 import { IActionGroup } from '@libreforge/libreforge-framework-shared';
+import { ActionVariableEvaluationService, SYMBOL_ACTION_VARIABLE_EVAL_SERVICE } from '../services';
 
 export const useActionHandlers = (props: any, actionGroup: IActionGroup, 
     router: any, snackbar: any, page: number = 0, size: number = 10) => {
@@ -20,6 +21,7 @@ export const useActionHandlers = (props: any, actionGroup: IActionGroup,
   const sharedState = useSelector(getSharedState);
   const container = useContext(InversifyContainerProviderContext);
   const factory = new ProviderFactory(container);
+  const variableEvalService = container.get<ActionVariableEvaluationService>(SYMBOL_ACTION_VARIABLE_EVAL_SERVICE);
 
   const pagination = { page, size };
 
@@ -50,7 +52,8 @@ export const useActionHandlers = (props: any, actionGroup: IActionGroup,
             const actionExecutionContext: ActionExecutionContext = {
               componentId: props.componentId, 
               collectionRefIdx, args: item.args, pageComponents, currentPageState, sharedState,              
-              dispatch, snackbar, router, container, prevExecutionState: lastActionResult.result, pagination
+              dispatch, snackbar, router, container, prevExecutionState: lastActionResult.result, 
+              variableEvalService, pagination
             }
 
             try {  

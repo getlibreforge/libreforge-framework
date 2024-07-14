@@ -6,7 +6,7 @@ import { SYMBOL_VALUE_CHANGE_ACTION, AbstractValueChangeAction } from './actions
 import { DefaultValueChangeAction } from './actions/DefaultValueChangeAction';
 import { ClickByRefAction, DebugStateAction, ExecuteScriptAction, ExtractLocationDataAction, ExtractResponseDataAction, FetchAction, RouteToNextWizardStepAction, RouteToPageRedirectAwareAction, RouteToPrevWizardStepAction, StoreDataAction } from './actions';
 import { FormSubmitAction } from './actions/FormSubmitAction';
-import { AbstractI18nLookupService, DefaultI18nLookupService, SYMBOL_I18N_PROVIDER } from './services';
+import { AbstractI18nLookupService, ActionVariableEvaluationService, DefaultI18nLookupService, SYMBOL_ACTION_VARIABLE_EVAL_SERVICE, SYMBOL_I18N_PROVIDER } from './services';
 import { AuthorizationManager, SYMBOL_AUTHORIZATION_MANAGER } from './security/AuthorizationManager';
 import { RouteToPageAction } from './actions/RouteToPageAction';
 import { AbstractValidationRule, SYMBOL_VALIDATION_RULE } from './validation/AbstractValidationRule';
@@ -30,6 +30,7 @@ export function bindProviders(
 
   /* Services */
   container.bind<AbstractI18nLookupService>(SYMBOL_I18N_PROVIDER).to(i18nLookupServiceType);
+  container.bind<ActionVariableEvaluationService>(SYMBOL_ACTION_VARIABLE_EVAL_SERVICE).to(ActionVariableEvaluationService);
 
   /* Handlers */
   container.bind<AbstractAction>(SYMBOL_ACTION_PROVIDER).to(DebugStateAction);
