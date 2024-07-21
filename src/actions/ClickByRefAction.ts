@@ -18,8 +18,6 @@ export class ClickByRefAction extends AbstractAction {
 
     const { args, pageComponents } = context;
 
-    console.warn(`${this.name} called`);
-
     const componentRef = args[ARG_COMPONENT_REF_ID];
     if (!componentRef) {
       console.error(`ClickByRef > ${ARG_COMPONENT_REF_ID} argument not provided`);

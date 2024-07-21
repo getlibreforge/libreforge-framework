@@ -16,7 +16,6 @@ export class RouteToPageAction extends AbstractAction {
   async execute(context: ActionExecutionContext): Promise<{ next: boolean, result: any }> {
 
     const { args, dispatch, router } = context;
-    console.warn(`${this.name} called`);
 
     const url = args[ARG_URL];
     if (!url) {

@@ -47,13 +47,10 @@ export class FormSubmitAction extends AbstractAction {
     /* Clean Business Rule error */
     await dispatch.app.setSharedErrorMessage({ message: undefined });
     
-    console.warn(`collectionRefIdx = ${collectionRefIdx}`);
-
     /* Check if Form is within forEach and then change scope from Page to Row - TODO: move to utility */
     let pageStateScoped: any = {};
     const forEach = utils.getParentOfType(form, 'forEach', pageComponents);
     if (!!forEach && !!forEach.props['collectionRef'] && collectionRefIdx !== undefined) {
-      console.warn(`collectionRef = ${forEach.props['collectionRef']}`);
 
       /* Change scope */
       pageStateScoped = currentPageState[forEach.props['collectionRef']][collectionRefIdx]; 

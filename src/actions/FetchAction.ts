@@ -17,8 +17,7 @@ export class FetchAction extends AbstractAction {
 
   async execute(context: ActionExecutionContext): Promise<{ next: boolean, result: any }> {
 
-    const { args, dispatch } = context;
-    console.warn(`${this.name} called`);
+    const { args, dispatch, snackbar } = context;
 
     const rawUrl = args[ARG_URL];
     if (!rawUrl) {
@@ -30,9 +29,15 @@ export class FetchAction extends AbstractAction {
     const targetUrl = replaceVariable(rawUrl, rawUrlVariables, context);
 
     /* Submitting */
-    const response = await FormSubmitService.load("", targetUrl);
-    const data = await response.json();
+    let response = undefined;
+    try {
+      response = await FormSubmitService.load("", targetUrl);
+    } catch (error) {
+      alert('Uneble to fetch resource');
+      return { next: false, result: { data: undefined, headers: undefined} };
+    }
 
+    const data = await response?.json();
     return { next: true, result: { data, headers: undefined} };
   }
 

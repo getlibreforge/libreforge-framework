@@ -27,9 +27,6 @@ export class ComponentUtils {
   }
 
   getParentOfType(current: IComponent, type: ComponentType, pageComponents: IComponents): IComponent | undefined {
-    console.warn('>>> getParentOfType');
-    console.warn(current);
-
     if (current.id == 'root') {
       return undefined;
     }

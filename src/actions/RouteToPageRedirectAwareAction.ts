@@ -22,8 +22,6 @@ export class RouteToPageRedirectAwareAction extends AbstractRedirectAwareAction 
       return result;
     }
 
-    console.warn(`${this.name} called`);
-
     const url = args[ARG_URL];
     if (!url) {
       console.error(`${this.name} > ${ARG_URL} argument not provided`);

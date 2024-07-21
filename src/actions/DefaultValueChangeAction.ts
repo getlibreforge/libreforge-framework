@@ -18,7 +18,6 @@ export class DefaultValueChangeAction extends AbstractValueChangeAction {
     currentPageState: any,
     dispatch: RematchDispatch<any>,
   ) {
-    console.warn(`DefaultValueChange called - componentName [${componentName}], value [${value}]`)
 
     /* TODO: Clean error, if field is touched */
 

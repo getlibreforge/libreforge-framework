@@ -24,7 +24,6 @@ export const useFormErrorMessage = (
   /* Get form control */
   const formControl = utils.getParentOfType(current, 'FormControl', pageComponents);
   if (!formControl) {
-    console.warn('Parent FormControl component not found');
     return props;
   }
 

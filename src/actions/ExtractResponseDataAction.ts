@@ -16,7 +16,6 @@ export class ExtractResponseDataAction extends AbstractAction {
   async execute(context: ActionExecutionContext): Promise<{ next: boolean, result: any }> {
 
     const { args, dispatch, prevExecutionState } = context;
-    console.warn(`${this.name} called`);
 
     const attribute = args[ARG_ATTRIBUTE];
     if (!attribute) {

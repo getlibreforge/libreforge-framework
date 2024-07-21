@@ -17,7 +17,6 @@ export class DebugStateAction extends AbstractAction {
   async execute(context: ActionExecutionContext): Promise<{ next: boolean, result: any }> {
 
     const { args, sharedState, currentPageState } = context;
-    console.warn('DebugState called');
 
     const stateType = args[ARG_STATE_TYPE];
     if (!stateType) {

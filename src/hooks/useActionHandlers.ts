@@ -59,7 +59,7 @@ export const useActionHandlers = (props: any, actionGroup: IActionGroup,
             try {  
               lastActionResult = await item.action.execute(actionExecutionContext);
             } catch (error) {
-              console.log(error);
+              snackbar.error(error);
               return;
             }
           }           

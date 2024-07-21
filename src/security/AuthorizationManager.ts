@@ -13,15 +13,12 @@ export class AuthorizationManager {
   
   async authorize(href: string, pathname: string, sharedState: any, container: Container, dispatch: RematchDispatch<any>): Promise<string | undefined> {
 
-    console.warn(`AuthorizationService -> Intercepted call to ${origin}`);
     const authConfig = container.get<AbstractAuthorizationConfigProvider>(SYMBOL_AUTHORIZATION_CONFIG_PROVIDER);
     if (!authConfig) {
-      console.warn('No AbstractAuthorizationConfigProvider found, skipping authorization...');
       return undefined;
     }
 
     if (!pathname || pathname === '' || pathname === '/') {
-      console.warn(`"${href}" is being accessed. Empty pathname is granted!`);
       return undefined;      
     }
 
@@ -29,7 +26,6 @@ export class AuthorizationManager {
     const publicPatterns = authConfig.getPublicPatterns();
     for (let i=0; i<publicPatterns.length; i++) {
       if (true === publicPatterns[i].test(href)) {
-        console.warn(`"${href}" is defined, as public URL. Access granted!`);
         return undefined;
       }
     }
@@ -39,7 +35,6 @@ export class AuthorizationManager {
 
     /* Check sharedState has _token */
     if (!!sharedState[SHARED_STATE_TOKEN]) {
-      console.warn('Authorization token found. Access granted!');
       return undefined;
     }
 
@@ -48,12 +43,10 @@ export class AuthorizationManager {
     if (!!refreshStrategy) {
       const isRefreshed = await refreshStrategy.refresh(dispatch);
       if (true === isRefreshed) {
-        console.warn('Authorization token refreshed!');
         return undefined;
       }
     }
 
-    console.warn('AuthorizationManager -> neither Public page, nor token found. Access forbidden!');
     const redirect_uri = window.location.pathname + window.location.search;
     return `${authConfig.getLoginPagePath()}?redirect_uri=${encodeURIComponent(redirect_uri)}` ;
   };

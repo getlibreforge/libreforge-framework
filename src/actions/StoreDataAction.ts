@@ -19,8 +19,6 @@ export class StoreDataAction extends AbstractAction {
     const { args, dispatch, prevExecutionState } = context;
     const prevExecutionData = prevExecutionState?.data || {};
 
-    console.warn(`${this.name} called`);
-
     const stateType = args[ARG_STATE_TYPE];
     if (!stateType) {
       console.error(`DebugState > ${ARG_STATE_TYPE} argument not provided`);

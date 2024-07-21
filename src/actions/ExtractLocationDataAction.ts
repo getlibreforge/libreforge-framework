@@ -18,7 +18,6 @@ export class ExtractLocationDataAction extends AbstractAction {
   async execute(context: ActionExecutionContext): Promise<{ next: boolean, result: any }> {
 
     const { args, dispatch } = context;
-    console.warn(`${this.name} called`);
 
     const queryParam = args[ARG_QUERY_PARAM];
     const saveTo = args[ARG_SAVE_TO];
