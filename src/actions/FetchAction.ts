@@ -33,7 +33,6 @@ export class FetchAction extends AbstractAction {
     try {
       response = await FormSubmitService.load("", targetUrl);
     } catch (error) {
-      alert('Uneble to fetch resource');
       return { next: false, result: { data: undefined, headers: undefined} };
     }
 
