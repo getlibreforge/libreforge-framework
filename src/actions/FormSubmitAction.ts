@@ -36,7 +36,7 @@ export class FormSubmitAction extends AbstractAction {
 
     const rawUrl = submitButton.props['_x_url'] + (!!pagination ? `?size=${pagination.size}&page=${pagination.page}`: '');
     const rawUrlVariables = getExpressionVariableNames(rawUrl);
-    const targetUrl = replaceVariable(rawUrl, rawUrlVariables, currentPageState);
+    const targetUrl = replaceVariable(rawUrl, rawUrlVariables, context);
 
     /* Lookup for Form component */
     const form = utils.getParentOfType(submitButton, 'Form', pageComponents);

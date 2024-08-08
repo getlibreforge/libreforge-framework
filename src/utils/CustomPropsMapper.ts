@@ -1,24 +1,28 @@
 
 const CUSTOM_PROPS_TO_REMOVE = [
   'designMode', 'pageComponents', 'wrapperComponent', 'wrapperContainer', 
-  'overridenComponentPageState', 'designModeInteractivityDisabled', 'collectionRefIdx'
+  'overridenComponentPageState', 'designModeInteractivityDisabled', 'collectionRefIdx', 
+  'pages', '_x_name', '_x_onchange', 'children', 'componentId'
 ]
 
-export const cleanupCustomComponentProps = (props: any): any => {
+export const cleanupCustomComponentProps = (props: any, extraProps: {} = {}): any => {
   if (!props) {
     return {}
   }
+
+  const propsToRemove = [...CUSTOM_PROPS_TO_REMOVE, ...Object.keys(extraProps)];
 
   const result = {};
   const keys = Object.keys(props);
   for (let i=0; i < keys.length; i++) {
     const key = keys[i];
 
-    if (key === 'componentId') {
+    // @ts-ignore
+    if (key === 'componentId' && !extraProps['key']) {
       // @ts-ignore
       result['key'] = props[key];
 
-    } else if (CUSTOM_PROPS_TO_REMOVE.filter(item => item === key).length > 0) {
+    } else if (propsToRemove.filter(item => item === key).length > 0) {
       // console.debug(`${key} ${props[key]} removed from DOM element`)
 
     } else {
